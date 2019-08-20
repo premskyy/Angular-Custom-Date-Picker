@@ -1,0 +1,38 @@
+<div class="shadow p-1 mb-5 bg-white rounded calendar">
+    <div class="calendar-navs">
+        <div class="year-nav">
+            <button class="btn btn-sm btn-secondary" (click)="prevYear()"><i class="fa fa-chevron-left"
+                    aria-hidden="true"></i></button>
+            <span>{{ currentDate.format('YYYY') }}</span>
+            <button class="btn btn-sm btn-secondary" (click)="nextYear()"><i class="fa fa-chevron-right"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="month-nav">
+            <button class="btn btn-sm btn-secondary" (click)="prevMonth()"><i class="fa fa-chevron-left"
+                    aria-hidden="true"></i></button>
+            <span class="p4">{{ currentDate.format('MMMM') }}</span>
+            <button class="btn btn-sm btn-secondary" (click)="nextMonth()"><i class="fa fa-chevron-right"
+                    aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="month-grid">
+        <div class="day-names">
+            <div *ngFor="let name of dayNames" class="day-name p9">
+                {{ name }}
+            </div>
+        </div>
+        <div class="weeks">
+            <div *ngFor="let week of weeks" class="week">
+                <ng-container *ngFor="let day of week">
+                    <div class="week-date disabled" *ngIf="!isSelectedMonth(day.mDate)">
+                        <span class="date-text">{{ day.mDate.date() }}</span>
+                    </div>
+                    <div class="week-date enabled" *ngIf="isSelectedMonth(day.mDate)" (click)="selectDate(day)"
+                        [ngClass]="{ today: day.today, selected: day.selected }">
+                        <span class="date-text">{{ day.mDate.date() }}</span>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
