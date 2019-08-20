@@ -6,8 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 In order to start the project use:
 
 ```bash
-$ git clone https://github.com/premskyy/datePicker.git
-$ cd datePicker
+$ git clone https://github.com/premskyy/Angular-Custom-Date-Picker.git
+$ cd Angular-Custom-Date-Picker
 # install the project's dependencies
 $ npm install
 
